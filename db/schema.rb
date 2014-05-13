@@ -17,8 +17,7 @@ ActiveRecord::Schema.define(version: 20140513160706) do
   enable_extension "plpgsql"
 
   create_table "users", force: true do |t|
-    t.text   "about_me"
-    t.string "location"
+    t.text "about_me"
   end
 
 end
