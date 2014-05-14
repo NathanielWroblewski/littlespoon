@@ -1,3 +1,10 @@
-%h1 Welcome Page
-- @users.each do |user|
-  = image_tag user.main_photo
+#header
+  .row
+    .small-12.columns
+      %h1#logo.center little spoon
+#content
+  .row
+    .small-12.columns
+      - @users.each do |user|
+        .small-6.medium-4.large-3.columns
+          = image_tag user.main_photo
