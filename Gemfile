@@ -19,10 +19,15 @@ end
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'pry'
 end
 
 group :test do
+  gem 'database_cleaner'
+  gem 'factory_girl'
   gem 'rspec'
   gem 'capybara'
+  gem 'selenium-webdriver'
   gem 'shoulda-matchers'
 end
