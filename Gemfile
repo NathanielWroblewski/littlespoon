@@ -5,6 +5,7 @@ gem 'pg'
 ruby '2.1.1'
 
 gem 'coffee-rails', '~> 4.0.0'
+gem 'foundation-rails'
 gem 'haml'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'

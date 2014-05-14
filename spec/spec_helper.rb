@@ -3,12 +3,8 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
-require 'capybara/rspec'
+require 'paperclip/matchers'
 
-Capybara.default_driver = :selenium
-Capybara.run_server = true 
-Capybara.server_port = 7000
-Capybara.app_host = "http://localhost:#{Capybara.server_port}"
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
@@ -18,7 +14,8 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
-  config.include FactoryGirl::Syntax::Methods
+  config.include FactoryGirl::Syntax::Default
+  config.include Paperclip::Shoulda::Matchers
   # ## Mock Framework
   #
   # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
@@ -36,5 +33,10 @@ RSpec.configure do |config|
   # order dependency and want to debug it, you can fix the order by providing
   # the seed, which is printed after each run.
   #     --seed 1234
-  config.order = "random"
+  config.order = 'random'
+  config.color = true
+
+  config.expect_with :rspec do |c|
+    c.syntax = :expect
+  end
 end
